@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Το γραφείο μου</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #f3e3c3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .window {
+      width: 200px;
+      height: 260px;
+      background: #9fd3f0;
+      border: 12px solid #8b5a2b;
+      cursor: pointer;
+      transition: background 0.4s;
+    }
+    .window.closed {
+      background: #4a6b82;
+    }
+  </style>
+</head>
+<body>
+  <div class="window" id="window"></div>
+
+  <script>
+    const win = document.getElementById("window");
+    win.addEventListener("click", () => {
+      win.classList.toggle("closed");
+    });
+  </script>
+</body>
+</html>
