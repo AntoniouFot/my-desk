@@ -136,6 +136,29 @@
       .teddy.wave .arm {
         transform: rotate(-115deg);
       }
+      .inbox {
+        bottom: 50.5%;
+        left: 46%;
+        width: 12%;
+        aspect-ratio: 190/90;
+        position: absolute;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .inbox .letter {
+        top: 0;
+        left: 25%;
+        width: 45%;
+        transform: rotate(-6deg);
+      }
+      .inbox .layer {
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+      .inbox:hover {
+        transform: translateY(-6%);
+      }
     </style>
   </head>
   <body>
@@ -154,6 +177,11 @@
       <img class="plant" src="images/plant.svg" />
       <img class="desk" src="images/desk.svg" />
       <img class="lamp" src="images/lamp.svg" />
+      <div class="inbox" id="inbox">
+        <img class="layer" src="images/inbox-back.svg" />
+        <img class="letter" src="images/envelope.svg" />
+        <img class="layer" src="images/inbox-front.svg" />
+      </div>
       <img class="chair-back" src="images/chair-back.svg" />
       <img class="trash-bin" src="images/trash-bin.svg" />
       <div class="teddy" id="teddy">
@@ -195,6 +223,13 @@
         setTimeout(() => {
           teddy.classList.remove("wave");
         }, 1000);
+      });
+      // Βρες το Inbox
+      const inbox = document.getElementById("inbox");
+
+      // Όταν γίνει κλικ στο Inbox, άνοιξε το Gmail
+      inbox.addEventListener("click", () => {
+        window.open("https://mail.google.com");
       });
     </script>
   </body>
