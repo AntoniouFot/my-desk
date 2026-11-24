@@ -1,38 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="el">
-<head>
-  <meta charset="UTF-8">
-  <title>Το γραφείο μου</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: #f3e3c3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .window {
-      width: 200px;
-      height: 260px;
-      background: #9fd3f0;
-      border: 12px solid #8b5a2b;
-      cursor: pointer;
-      transition: background 0.4s;
-    }
-    .window.closed {
-      background: #4a6b82;
-    }
-  </style>
-</head>
-<body>
-  <div class="window" id="window"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Το γραφείο μου</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .wall {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70%;
+        background: #cf89ba;
+      }
+      .floor {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background: #6d4421;
+      }
+      .window {
+        position: absolute;
+        top: 15%;
+        left: 40%;
+        width: 200px;
+        height: 260px;
+        background: #9fd3f0;
+        border: 12px solid #8b5a2b;
+        cursor: pointer;
+        transition: background 0.4s;
+      }
+      .window.closed {
+        background: #4a6b82;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wall" id="wall"></div>
+    <div class="floor" id="floor"></div>
+    <div class="window" id="window"></div>
 
-  <script>
-    const win = document.getElementById("window");
-    win.addEventListener("click", () => {
-      win.classList.toggle("closed");
-    });
-  </script>
-</body>
+    <script>
+      const win = document.getElementById("window");
+      win.addEventListener("click", () => {
+        win.classList.toggle("closed");
+      });
+    </script>
+  </body>
 </html>
