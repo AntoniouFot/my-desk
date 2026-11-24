@@ -4,44 +4,45 @@
     <meta charset="UTF-8" />
     <title>Το γραφείο μου</title>
     <style>
+      /* Τοίχος (πάνω 70%) και πάτωμα (κάτω 30%) */
       body {
         margin: 0;
         height: 100vh;
         overflow: hidden;
+        background:
+          linear-gradient(#f4ede3 70%, transparent 70%),
+          url(images/floor-tile.svg);
+        background-size: 100% 100%, 240px 60px;
       }
-      .wall {
+      img {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 70%;
-        background: #f4ede3;
       }
-      .floor {
+
+      /* Το «κουτί» του δωματίου: πάντα 16:9, σαν φωτογραφία */
+      .room {
         position: absolute;
         bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 30%;
-        background: url(images/floor-tile.svg);
-        background-size: 240px 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(100vw, 177.78vh);
+        aspect-ratio: 16 / 9;
       }
+
+      /* Παράθυρο */
       .window {
         position: absolute;
-        top: 8%;
-        left: 38%;
-        width: 260px;
+        top: 5%;
+        left: 34%;
+        width: 18%;
         aspect-ratio: 260 / 320;
         cursor: pointer;
       }
       .window .layer {
-        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
       }
       .curtain {
-        position: absolute;
         top: -3%;
         width: 27%;
         transition: transform 0.6s;
@@ -62,24 +63,82 @@
       .window.closed .curtain.right {
         transform: scaleX(-2);
       }
+
+      /* Τοίχος */
+      .photo-board {
+        top: 6%;
+        left: 55%;
+        width: 26%;
+      }
+      .calendar-board {
+        top: 6%;
+        left: 82.5%;
+        width: 17%;
+      }
+
+      /* Έπιπλα (όσο μικρότερο το bottom, τόσο πιο μπροστά) */
+      .rug {
+        bottom: 7%;
+        left: 21%;
+        width: 34%;
+      }
+      .bookshelf {
+        bottom: 25%;
+        left: 1%;
+        width: 23.5%;
+      }
       .desk {
-        position: absolute;
-        bottom: 12%;
-        left: 30%;
-        width: 40%;
+        bottom: 24%;
+        left: 27%;
+        width: 32%;
+      }
+      .lamp {
+        bottom: 51.5%;
+        left: 28%;
+        width: 10%;
+      }
+      .chair-back {
+        bottom: 11%;
+        left: 30.5%;
+        width: 15%;
+      }
+      .trash-bin {
+        bottom: 21%;
+        left: 59.5%;
+        width: 7%;
+      }
+      .plant {
+        bottom: 25%;
+        left: 89%;
+        width: 10%;
+      }
+      .teddy-body {
+        bottom: 21%;
+        left: 70%;
+        width: 18%;
       }
     </style>
   </head>
   <body>
-    <div class="wall" id="wall"></div>
-    <div class="floor" id="floor"></div>
-    <div class="window" id="window">
-      <img class="layer" id="sky" src="images/sky-day.svg" />
-      <img class="layer" src="images/window-frame.svg" />
-      <img class="curtain left" src="images/curtain.svg" />
-      <img class="curtain right" src="images/curtain.svg" />
+    <div class="room">
+      <div class="window" id="window">
+        <img class="layer" id="sky" src="images/sky-day.svg" />
+        <img class="layer" src="images/window-frame.svg" />
+        <img class="curtain left" src="images/curtain.svg" />
+        <img class="curtain right" src="images/curtain.svg" />
+      </div>
+      <img class="photo-board" src="images/photo-board.svg" />
+      <img class="calendar-board" src="images/calendar-board.svg" />
+
+      <img class="rug" src="images/rug.svg" />
+      <img class="bookshelf" src="images/bookshelf.svg" />
+      <img class="plant" src="images/plant.svg" />
+      <img class="desk" src="images/desk.svg" />
+      <img class="lamp" src="images/lamp.svg" />
+      <img class="chair-back" src="images/chair-back.svg" />
+      <img class="trash-bin" src="images/trash-bin.svg" />
+      <img class="teddy-body" src="images/teddy-body.svg" />
     </div>
-    <img class="desk" src="images/desk.svg" />
 
     <script>
       // Βρίσκουμε το παράθυρο και τον ουρανό
