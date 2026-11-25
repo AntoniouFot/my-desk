@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 320" width="260" height="320"><defs><clipPath id="glass"><rect x="26" y="26" width="208" height="238"/></clipPath></defs>
+<g clip-path="url(#glass)">
+  <rect x="26" y="26" width="208" height="238" fill="#8e9aa8" opacity=".35"/>
+  <g fill="#c6ced8">
+    <ellipse cx="70" cy="70" rx="46" ry="18"/><ellipse cx="96" cy="58" rx="30" ry="20"/><ellipse cx="50" cy="62" rx="22" ry="14"/>
+    <ellipse cx="180" cy="104" rx="50" ry="18"/><ellipse cx="200" cy="92" rx="28" ry="18"/><ellipse cx="160" cy="96" rx="22" ry="14"/>
+  </g>
+  <g fill="#aeb8c4">
+    <ellipse cx="74" cy="78" rx="44" ry="10"/><ellipse cx="184" cy="112" rx="46" ry="10"/>
+    <ellipse cx="120" cy="150" rx="60" ry="16"/><ellipse cx="140" cy="140" rx="30" ry="16"/>
+  </g>
+</g>
+</svg>

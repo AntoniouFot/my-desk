@@ -196,6 +196,19 @@
       .laptop.open .screen {
         display: block;
       }
+      .clock {
+        top: 10%;
+        left: 26%;
+        width: 7%;
+        aspect-ratio: 1;
+        position: absolute;
+        cursor: pointer;
+      }
+      .clock .layer {
+        top:0%;
+        left:0%;
+        width:100%;
+      }
     </style>
   </head>
   <body>
@@ -229,6 +242,12 @@
       <div class="teddy" id="teddy">
         <img class="layer" src="images/teddy-body.svg" />
         <img class="layer arm" src="images/teddy-arm.svg" />
+      </div>
+      <div class="clock" id="clock">
+        <img class="layer" src="images/clock-face.svg" />
+        <img class="layer" id="minute" src="images/clock-minute.svg" />
+        <img class="layer" id="second" src="images/clock-second.svg" />
+        <img class="layer" id="hour" src="images/clock-hour.svg" />
       </div>
     </div>
 
@@ -291,6 +310,21 @@
         event.stopPropagation();
         window.open("https://www.google.com");
       });
+      const hourHand = document.getElementById("hour");
+      const minuteHand = document.getElementById("minute");
+      const secondHand = document.getElementById("second");
+
+      // Κάθε δευτερόλεπτο, γύρνα τους δείκτες
+      setInterval(() => {
+        const now = new Date();
+        const h = now.getHours();
+        const m = now.getMinutes();
+        const s = now.getSeconds();
+
+        secondHand.style.transform = `rotate(${s * 6}deg)`;
+        minuteHand.style.transform = `rotate(${m * 6}deg)`;
+        hourHand.style.transform = `rotate(${h * 30}deg)`;
+      }, 1000);
     </script>
   </body>
 </html>
