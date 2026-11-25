@@ -136,6 +136,8 @@
       .teddy.wave .arm {
         transform: rotate(-115deg);
       }
+
+      /* Inbox */
       .inbox {
         bottom: 50.5%;
         left: 46%;
@@ -159,6 +161,41 @@
       .inbox:hover {
         transform: translateY(-6%);
       }
+
+      /* Laptop */
+      .laptop {
+        position: absolute;
+        bottom: 50.5%;
+        left: 37.5%;
+        width: 8.5%;
+        aspect-ratio: 200 / 140;
+        cursor: pointer;
+      }
+      .laptop .layer {
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+      /* Κλειστό: φαίνεται μόνο η κλειστή εικόνα */
+      .laptop .open-img {
+        display: none;
+      }
+      .laptop .screen {
+        display: none;
+        position: absolute;
+        left: 19%;
+        top: 17%;
+        width: 62%;
+        height: 60%;
+      }
+      /* Ανοιχτό: κρύβεται η κλειστή, φαίνονται η ανοιχτή και η οθόνη */
+      .laptop.open .closed-img {
+        display: none;
+      }
+      .laptop.open .open-img,
+      .laptop.open .screen {
+        display: block;
+      }
     </style>
   </head>
   <body>
@@ -177,6 +214,11 @@
       <img class="plant" src="images/plant.svg" />
       <img class="desk" src="images/desk.svg" />
       <img class="lamp" src="images/lamp.svg" />
+      <div class="laptop" id="laptop">
+        <img class="layer closed-img" src="images/laptop-closed.svg" />
+        <img class="layer open-img" src="images/laptop-open.svg" />
+        <div class="screen" id="screen"></div>
+      </div>
       <div class="inbox" id="inbox">
         <img class="layer" src="images/inbox-back.svg" />
         <img class="letter" src="images/envelope.svg" />
@@ -224,12 +266,30 @@
           teddy.classList.remove("wave");
         }, 1000);
       });
+
       // Βρες το Inbox
       const inbox = document.getElementById("inbox");
 
       // Όταν γίνει κλικ στο Inbox, άνοιξε το Gmail
       inbox.addEventListener("click", () => {
         window.open("https://mail.google.com");
+      });
+
+      // Βρες το laptop
+      const laptop = document.getElementById("laptop");
+
+      // Κλικ στο laptop: ανοίγει / κλείνει το καπάκι
+      laptop.addEventListener("click", () => {
+        laptop.classList.toggle("open");
+      });
+
+      // Βρες την οθόνη
+      const screen = document.getElementById("screen");
+
+      // Κλικ στην οθόνη: άνοιξε το Google (και μην κλείσεις το καπάκι)
+      screen.addEventListener("click", (event) => {
+        event.stopPropagation();
+        window.open("https://www.google.com");
       });
     </script>
   </body>
